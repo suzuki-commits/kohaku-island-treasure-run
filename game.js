@@ -187,7 +187,9 @@ function rectsOverlap(a, b) {
   return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
 }
 
-function resetPlayer(keepHealth = false) {
+function resetPlayer(options = {}) {
+  const keepHealth = options.keepHealth === true;
+  const score = Number.isFinite(options.score) ? options.score : 0;
   Object.assign(player, {
     x: 72,
     y: 330,
@@ -198,17 +200,19 @@ function resetPlayer(keepHealth = false) {
     roll: 0,
     slam: false,
     invincible: 0,
-    score: 0,
+    score,
     health: keepHealth ? player.health : 3
   });
 }
 
-function startStage(index, keepRunScore = false) {
+function startStage(index, carryScore = false) {
   world.stageIndex = index;
   const stage = activeStage();
   cloneStageState();
-  resetPlayer(keepRunScore);
-  player.score = keepRunScore ? world.runScore : 0;
+  resetPlayer({
+    keepHealth: carryScore,
+    score: carryScore ? world.runScore : 0
+  });
   world.started = true;
   world.won = false;
   world.campaignDone = false;
