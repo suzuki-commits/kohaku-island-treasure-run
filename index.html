@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>コハク島のトレジャーラン</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero" aria-label="コハク島のトレジャーラン">
+      <div class="title-panel">
+        <p class="eyebrow">ORIGINAL ISLAND ACTION</p>
+        <h1>コハク島の<br>トレジャーラン</h1>
+        <p class="lead">光るコハクを集めながら、葉っぱの谷を駆け抜けろ。</p>
+      </div>
+
+      <div class="game-wrap">
+        <canvas id="game" width="960" height="540" aria-label="横スクロールアクションゲーム"></canvas>
+        <div class="overlay" id="overlay">
+          <div>
+            <p class="stage-label">STAGE 1</p>
+            <h2>サンリーフ渓谷</h2>
+            <p>ジャンプ、ロール、地響きを使い分けてゴールの灯台へ。</p>
+            <button type="button" id="startButton">ゲーム開始</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hud-row" aria-label="ゲーム情報">
+      <article>
+        <strong>操作</strong>
+        <span>← → / A D: 移動、Space: ジャンプ、Shift: ロール、↓ / S: 地響き</span>
+      </article>
+      <article>
+        <strong>目的</strong>
+        <span>コハクを集め、敵を避け、右端の灯台までたどり着く。</span>
+      </article>
+      <article>
+        <strong>ヒント</strong>
+        <span>ロール中は速く走れる。空中で下を押すと着地時に周囲の敵を止められる。</span>
+      </article>
+    </section>
+
+    <div class="touch-controls" aria-label="タッチ操作">
+      <button type="button" data-hold="left" aria-label="左へ移動">←</button>
+      <button type="button" data-hold="right" aria-label="右へ移動">→</button>
+      <button type="button" data-tap="jump" aria-label="ジャンプ">J</button>
+      <button type="button" data-hold="roll" aria-label="ロール">R</button>
+      <button type="button" data-tap="slam" aria-label="地響き">S</button>
+    </div>
+  </main>
+
+  <script src="./game.js"></script>
+</body>
+</html>
